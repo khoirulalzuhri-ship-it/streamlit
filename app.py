@@ -8,7 +8,7 @@ class KategoriNode:
     def tambah_sub(self, node_kategori):
         self.sub_kategori.append(node_kategori)
 
-   def dapatkan_tree_string(self, level=0):
+    def dapatkan_tree_string(self, level=0):
     indentasi = "    " * level
     simbol = "↳ " if level > 0 else "📦 "
     hasil = f"{indentasi}{simbol}{self.nama}\n"

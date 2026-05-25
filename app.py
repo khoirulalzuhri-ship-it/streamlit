@@ -86,13 +86,15 @@ else:
         anak_nama = st.text_input ("Nama sub-kategori baru : ")
 
         if st.button("Tambah kategori"):
-            if induk_node:
-                induk_node.tambah_sub(KategoriNode(anak_nama))
-                st.success(f"Berhasil menambahkan {anak_nama} di bawah '{induk_node.nama}' !")
+            if induk_nama and anak_nama:
+                induk_node = root.cari_node(induk_nama)
+                if induk_node:
+                    induk_node.tambah_sub(KategoriNode(anak_nama))
+                    st.success(f"Berhasil menambahkan {anak_nama} di bawah '{induk_node.nama}' !")
+                else:
+                    st.error (f"kategori {induk_nama} tidak ditemukan! Pastikan ejaannya benar.")
             else:
-                st.error (f"kategori {induk_nama} tidak ditemukan! Pastikan ejaannya benar.")
-        else:
-            st.warning("Harap isi kedua kolom di atas.")
+                st.warning("Harap isi kedua kolom di atas.")
 
     with tab3:
         st.subheader("Pencarian BreadCrumb")

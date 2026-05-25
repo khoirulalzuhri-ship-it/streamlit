@@ -15,7 +15,7 @@ class KategoriNode:
         
         for sub in self.sub_kategori:
             sub.dapatkan_tree_string(level + 1)
-        return
+        return hasil
 
     def cari_node(self, target_nama):
         # Mencari node spesifik untuk menambahkan anak di bawahnya

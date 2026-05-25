@@ -9,14 +9,14 @@ class KategoriNode:
         self.sub_kategori.append(node_kategori)
 
     def dapatkan_tree_string(self, level=0):
-    indentasi = "    " * level
-    simbol = "↳ " if level > 0 else "📦 "
-    hasil = f"{indentasi}{simbol}{self.nama}\n"
+        indentasi = "    " * level
+        simbol = "↳ " if level > 0 else "📦 "
+        hasil = f"{indentasi}{simbol}{self.nama}\n"
     
-    for sub in self.sub_kategori:
-        hasil += sub.dapatkan_tree_string(level + 1)
+        for sub in self.sub_kategori:
+            hasil += sub.dapatkan_tree_string(level + 1)
         
-    return hasil
+        return hasil
 
     def cari_node(self, target_nama):
         # Mencari node spesifik untuk menambahkan anak di bawahnya
